@@ -201,6 +201,12 @@ int binaryTreeType<elemType>::treeLeavesCount() const
 }//end treeLeavesCount
 
 template <class elemType>
+void binaryTreeType<elemType>::destroyTree()
+{
+    destroy(root);
+}//end destroyTree
+
+template <class elemType>
 void binaryTreeType<elemType>::inOrder
                                 (nodeType<elemType> *p) const
 {
@@ -270,3 +276,50 @@ void binaryTreeType<elemType>::copyTree
         copyTree(copiedTreeRoot->rLink, otherTreeRoot->rLink);
     }
 }//end copyTree
+
+template <class elemType>
+void binaryTreeType<elemType>::destroy(nodeType<elemType>* &p)
+{
+    if (p != NULL)
+    {
+        destroy(p->lLink);
+        destroy(p->rLink);
+        delete p;
+        p = NULL;
+    }
+}//end destroy
+
+
+template <class elemType>
+binaryTreeType<elemType>::binaryTreeType
+                (const binaryTreeType<elemType>& otherTree)
+{//copy constructor to avoid shallow copying of data
+    if (otherTree.root == NULL) //otherTree is empty
+        root = NULL;
+    else
+        copyTree(root, otherTree.root);
+}//end copy constructor
+
+template <class elemType>
+binaryTreeType<elemType>::~binaryTreeType()
+{//Destructor
+    destroy(root);
+}
+
+template <class elemType>
+const binaryTreeTyp<elemType>& binaryTreeType<elemType>::
+        operator= (const binaryTreeType<elemType>& otherTree)
+{//Overloading the assignment operator
+    if (this != otherTree) // avoid self-copy
+    {
+        if (root != NULL)
+            destroy(root);
+
+        if (otherTree.root == NULL)//otherTree is empty
+            root = NULL;
+        else
+            copyTree(root,otherTree.root);
+    }
+
+    return *this;
+}
