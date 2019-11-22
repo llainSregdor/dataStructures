@@ -257,4 +257,16 @@ int binaryTreeType<elemType>::max(int x, int y) const
 
 template <class elemType>
 void binaryTreeType<elemType>::copyTree
-                        (nodeType<elemType* &copiedTreRoot,)
+                        (nodeType<elemType>* &copiedTreeRoot,
+                         nodeType<elemType>* &otherTreeRoot)
+{
+    if(otherTreeRoot == NULL)
+        copiedTreeRoot = NULL;
+    else
+    {
+        copiedTreeRoot = new nodeType<elemType>;
+        copiedTreeRoot->info = otherTreeRoot->info;
+        copyTree(copiedTreeRoot->lLink, otherTreeRoot->lLink);
+        copyTree(copiedTreeRoot->rLink, otherTreeRoot->rLink);
+    }
+}//end copyTree
