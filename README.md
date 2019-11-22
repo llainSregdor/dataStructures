@@ -1,3 +1,3 @@
 # Data Structures
 
-Examples of simple data structures in C++
+Examples of data structures in C++
