@@ -7,7 +7,7 @@
 //than every key in the right subtree. The left and right subtrees are
 //binary search trees.
 //*****************************************************************************
-//The ollowing defines a binary search tree as an ADT by extending the 
+//The following defines a binary search tree as an ADT by extending the 
 //definition of the binary tree.
 //*****************************************************************************
 
