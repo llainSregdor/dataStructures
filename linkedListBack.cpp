@@ -1,4 +1,4 @@
-//Ben Rodgers
+//Ben Rodgers 2019
 //*************************************************************
 //LINKED LIST BACKWARD:
 //A collection of nodes (items) with two components: 
