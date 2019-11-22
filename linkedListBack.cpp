@@ -1,3 +1,4 @@
+//Ben Rodgers
 //*************************************************************
 //LINKED LIST BACKWARD:
 //A collection of nodes (items) with two components: 
