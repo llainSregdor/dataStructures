@@ -150,6 +150,7 @@ private:
 //*****************************************************************************
 //NON ABSTRACT MEMBER FUNCTION DECLARATIONS OF binaryTreeType
 //*****************************************************************************
+//NOTE MISSING: nodeCount, leavesCount (To be added at a later time)
 
 template <class elemType>
 bool binaryTreeType<elemType>::isEmpty()
@@ -253,3 +254,7 @@ int binaryTreeType<elemType>::max(int x, int y) const
     else
         return y;
 }//end max
+
+template <class elemType>
+void binaryTreeType<elemType>::copyTree
+                        (nodeType<elemType* &copiedTreRoot,)
