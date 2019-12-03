@@ -121,3 +121,39 @@ void graphType::createGraph()
 
     inFile.close();
 }//end createGraph
+
+void graphType::clearGraph()
+{
+    int index;
+
+    for (index = 0; index < gSize; index++)
+        graph[index].destroylist();
+
+    gSize= 0;
+}//end clearGraph.
+
+void graphType::printGraph()
+{
+    int index;
+
+    for(index = 0; index < gSize; index++)
+    {
+        cout << index << " ";
+        graph[index].print();
+        cout << endl;
+    }
+    
+    cout << endl;
+}//end printGraph
+
+graphType::graphType(int size)
+{//Constructor
+    maxSize = size;
+    gSize = 0;
+    graph = new unorderedLinkedList<int>[size];
+}
+
+graphType::~graphType()
+{//Destructor
+    clearGraph();
+}
