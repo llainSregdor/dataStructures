@@ -62,3 +62,20 @@ private:
       //Postcondition:  Starting at v, the vertices are printed using a depth
       //                first traversal algorithm.
 }
+
+
+//*****************************************************************************
+//MEMBER FUNCTION DEFINITIONS
+//*****************************************************************************
+//Definition of function crete graph depends on how the data is input into the
+//program. We assume data is input from file. In following form:
+//5
+//0 2 4 ... n
+//1 3 6 8 ... n
+//...
+//*****************************************************************************
+
+bool graphType::isEmpty() const;
+{
+    return (gSize == 0);
+}
