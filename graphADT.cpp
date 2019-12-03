@@ -67,7 +67,7 @@ private:
 //*****************************************************************************
 //MEMBER FUNCTION DEFINITIONS
 //*****************************************************************************
-//Definition of function crete graph depends on how the data is input into the
+//Definition of function create graph depends on how the data is input into the
 //program. We assume data is input from file. In following form:
 //5
 //0 2 4 ... -999
