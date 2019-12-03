@@ -157,3 +157,91 @@ graphType::~graphType()
 {//Destructor
     clearGraph();
 }
+
+void graphType::dft(int v, bool visted[])
+{
+    visited[v] = true;
+    cout << " " << v << " "; //visit vertex
+
+    linkedListIterator<int> graphIt;
+
+ //for each vertex adjacent to v
+    for (graphIt = graph[v].begin() ; graphIt != graph[v].end(); graphIt++)
+    {
+        int w = *graphIt;
+        if (!visited[w])
+            dft(w, visited);
+    }//end for
+}//end dft
+
+void graphType::depthFirstTraversal()
+{
+    bool *visited; //ptr to create array to keep track of visited vertices
+    visted = new bool[gSize];
+    
+    int index;
+
+    for (index = 0 ; index < gSize ; index++)
+        visted[index] = false;
+    
+    for (index = 0; index < gSize; index ++)
+    {//for each vertex that is not visited, do a depth first traversal
+        if(!visited[index])
+            dft(index, visited);
+    
+    delete [] visited;
+    }
+}//end depthFirstTraversal
+
+void graphType::dftAtVertex(int vertex)
+{
+    bool *visited;
+    visited = new bool[gSize];
+
+    for ( int index = 0 ; index < gSize; index++)
+        visited[index] = false;
+    
+    dft(vertex,visited);
+
+    delete [] visited;
+}//end dftAtVertex
+
+void graphType::breadthFirstTraversal()
+{
+    linkedQueueType<int> queue;
+
+    bool *visited;
+    visited = bew bool[gSize];
+
+    for ( int ind = 0; ind < gSize; ind++)
+        visited[ind] = false; //initialise the array visited to false
+
+    linkedListIterator<int> graphIt;
+
+    for(int index = 0; index < gSize; index++)
+        if(!visited[index])
+        {
+            queue.addQueue[index];
+            visited[index] = true;
+            cout << " " << index << " ";
+
+            while (!queue.isEmptyQueue())
+            {
+                int u = queue.front();
+                queue.deleteQueue();
+
+                for (graphIt = graph[u].begin(); graphIt != graph[u].end();
+                                                                    graphIt++)
+                {
+                    int w = *graphIt;
+                    if (!visited[w])
+                    {
+                        queue.addQueue(w);
+                        visted[w] = true;
+                        cout << " " << w << " ";
+                    }
+                }
+            }//end while
+        }
+    delete [] visited;
+}//end breadthFirstTraversal
