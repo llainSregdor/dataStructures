@@ -70,12 +70,54 @@ private:
 //Definition of function crete graph depends on how the data is input into the
 //program. We assume data is input from file. In following form:
 //5
-//0 2 4 ... n
-//1 3 6 8 ... n
+//0 2 4 ... -999
+//1 3 6 8 ... -999
 //...
 //*****************************************************************************
 
-bool graphType::isEmpty() const;
+bool graphType::isEmpty() const
 {
     return (gSize == 0);
 }
+
+void graphType::createGraph()
+{
+    ifstream inFile;
+    char fileName[50];
+
+    int index;
+    int vertex;
+    int adjacentVertex;
+
+    if (gSize !=0) //if graph not empty, make it so.
+        clearGraph();
+
+
+    cout << "Enter input file name: ";
+    cin >> fileName;
+    cout << endl;
+
+    inFile.open(fileName);
+
+    if (!inFile)
+    {
+        cout << "Cannot open input file." << endl;
+        return;
+    }
+
+    infile >> gSize; //get num of vertices.
+
+    for (index = 0; index < gSize; index++)
+    {
+        inFile >> vertex;
+        inFile >> adjacentVertex;
+
+        while (adjacentVertex != -999)
+        {
+            graph[vertex].insertLast(adjacentVertex);
+            infile >> adjacentVertex;
+        }//end while
+    }//end for
+
+    inFile.close();
+}//end createGraph
