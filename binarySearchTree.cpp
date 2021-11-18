@@ -2,7 +2,7 @@
 //*****************************************************************************
 //BINARY SEARCH TREE(BST)
 //*****************************************************************************
-//Binary search tre is either empty or:
+//Binary search tree is either empty or:
 //Has a root node, two sets of nodes: the left subtree and right subtree.
 //Key in root node is larger than every key in the left subtree & smaller
 //than every key in the right subtree. The left and right subtrees are
